@@ -28,7 +28,7 @@ requirements:
     - requests
     - tornado >=4.5.1
     - jinja2
-    - ruamel.yaml >=0.15.0
+    - ruamel_yaml >=0.15.0
     - dask >=2.2
     - python-snappy
     - appdirs
