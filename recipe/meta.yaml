@@ -32,9 +32,8 @@ requirements:
     - dask >=0.17.0
     - python-snappy
     - appdirs
-    # - holoviews
-    # - ipywidgets >=7.2
-    # - pandas
+    - holoviews
+    - pandas
 
 test:
   source_files:
