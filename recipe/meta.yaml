@@ -33,9 +33,8 @@ requirements:
     - python-snappy
     - appdirs
     - entrypoints
-    # - holoviews
-    # - ipywidgets >=7.2
-    # - pandas
+    - holoviews
+    - pandas
 
 test:
   source_files:
