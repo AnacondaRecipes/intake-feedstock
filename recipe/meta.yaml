@@ -30,7 +30,7 @@ requirements:
     - jinja2
     - pyyaml
     - dask
-    - fsspec  >=2021.7.0
+    - fsspec >=2021.7.0
    # extra_require - server
     - msgpack-python
     - python-snappy
