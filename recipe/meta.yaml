@@ -57,15 +57,18 @@ test:
     - intake list --help
     - intake-server --help
 
-  downstreams:
-    - intake-xarray
-
 about:
-  home: https://github.com/ContinuumIO/intake
+  home: https://github.com/intake/intake
   license: BSD-2-Clause
   license_family: BSD
   license_file: LICENSE
   summary: Data load and catalog system
+  description: |
+    Intake is a lightweight set of tools for loading and sharing data in data science projects. Intake helps you:
+    * Load data from a variety of formats (see the current list of known plugins) into containers you already know, like Pandas dataframes, Python lists, NumPy arrays, and more.
+    * Convert boilerplate data loading code into reusable Intake plugins.
+    * Describe data sets in catalog files for easy reuse and sharing between projects and with others.
+    * Share catalog information (and data sets) over the network with the Intake server.
   dev_url: https://github.com/intake/intake
   doc_url: https://intake.readthedocs.io/en/latest/
 
