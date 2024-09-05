@@ -20,22 +20,16 @@ requirements:
     - pip
     - setuptools
     - wheel
+    - setuptools_scm
   run:
     - python
-# - appdirs
+    # - appdirs
     # - entrypoints
     # - jinja2
     - pyyaml
-    # - dask >=1.0
     - fsspec >=2023.0.0
     - platformdirs
     - networkx
-  # # extra_require - server
-  # - msgpack-python
-  # - python-snappy
-  # - tornado
-  #   # extra_require - remote
-  #   - requests
   # run_constrained:
   #   # extra_require - plot
   #   - bokeh
@@ -46,17 +40,35 @@ test:
   imports:
     - intake
     - intake.catalog
+    - intake.catalog.entry
+    - intake.catalog.local
     - intake.container
     - intake.interface
+    - intake.interface.catalog
+    - intake.interface.source
     - intake.readers
+    - intake.readers.catalogs
+    - intake.readers.convert
+    - intake.readers.datatypes
+    - intake.readers.entry
+    - intake.readers.importlist
+    - intake.readers.metadata
+    - intake.readers.mixins
+    - intake.readers.namespaces
+    - intake.readers.output
+    - intake.readers.readers
+    - intake.readers.search
+    - intake.readers.transform
+    - intake.readers.user_parameters
     - intake.source
+    - intake.source.base.DataSourceBase
+    - intake.source.base.DataSource
+    - intake.source.derived.AliasSource
+    - intake.source.base.Schema
   requires:
     - pip
-    - packaging
   commands:
     - pip check
-    - intake list --help
-    - intake-server --help
 
 about:
   home: https://github.com/intake/intake
