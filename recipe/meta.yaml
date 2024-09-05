@@ -61,12 +61,10 @@ test:
     - intake.readers.transform
     - intake.readers.user_parameters
     - intake.source
-    - intake.source.base.DataSourceBase
-    - intake.source.base.DataSource
-    - intake.source.derived.AliasSource
-    - intake.source.base.Schema
+    - intake.source.derived
   requires:
     - pip
+    - packaging
   commands:
     - pip check
 
