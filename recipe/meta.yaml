@@ -25,23 +25,25 @@ requirements:
     - wheel
   run:
     - python
-    - appdirs
-    - entrypoints
-    - jinja2
+# - appdirs
+    # - entrypoints
+    # - jinja2
     - pyyaml
-    - dask >=1.0
-    - fsspec >=2021.7.0
-    # extra_require - server
-    - msgpack-python
-    - python-snappy
-    - tornado
-    # extra_require - remote
-    - requests
-  run_constrained:
-    # extra_require - plot
-    - bokeh
-    - hvplot
-    - panel >=0.7.0
+    # - dask >=1.0
+    - fsspec >=2023.0.0
+    - platformdirs
+    - networkx
+  #   # extra_require - server
+  #   - msgpack-python
+  #   - python-snappy
+  #   - tornado
+  #   # extra_require - remote
+  #   - requests
+  # run_constrained:
+  #   # extra_require - plot
+  #   - bokeh
+  #   - hvplot
+  #   - panel >=0.7.0
 
 test:
   imports:
