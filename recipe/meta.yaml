@@ -27,11 +27,6 @@ requirements:
     - fsspec >=2023.0.0
     - platformdirs
     - networkx
-  run_constrained:
-    # extra_require - plot
-    - bokeh
-    - hvplot
-    - panel >=0.7.0
 
 test:
   imports:
