@@ -1,20 +1,18 @@
-{% set version = "0.7.0" %}
+{% set name = "intake" %}
+{% set version = "2.0.7" %}
 
 package:
-  name: intake
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/i/intake/intake-{{ version }}.tar.gz
-  sha256: ce3b8bce87f9831823f87936c546f898dbb718985770124c7cc569061726f3b6
+  url: https://pypi.io/packages/source/i/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 9d3e82cba03e1659b094e3954143f453d54fd64328de322b2e4f11db5f9b1380
 
 build:
   number: 0
   skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
-  entry_points:
-    - intake-server = intake.cli.server.__main__:main
-    - intake = intake.cli.client.__main__:main
 
 requirements:
   host:
@@ -22,38 +20,46 @@ requirements:
     - pip
     - setuptools
     - wheel
+    - setuptools_scm
   run:
     - python
-    - appdirs
-    - entrypoints
-    - jinja2
     - pyyaml
-    - dask >=1.0
-    - fsspec >=2021.7.0
-    # extra_require - server
-    - msgpack-python
-    - python-snappy
-    - tornado
-    # extra_require - remote
-    - requests
-  run_constrained:
-    # extra_require - plot
-    - bokeh
-    - hvplot
-    - panel >=0.7.0
+    - fsspec >=2023.0.0
+    - platformdirs
+    - networkx
+  # Used here(https://github.com/intake/intake/blob/2.0.7/intake/interface/__init__.py#L7)
+    - packaging
 
 test:
   imports:
     - intake
-    - intake.auth
     - intake.catalog
+    - intake.catalog.entry
+    - intake.catalog.local
+    - intake.container
+    - intake.interface
+    - intake.interface.catalog
+    - intake.interface.source
+    - intake.readers
+    - intake.readers.catalogs
+    - intake.readers.convert
+    - intake.readers.datatypes
+    - intake.readers.entry
+    - intake.readers.importlist
+    - intake.readers.metadata
+    - intake.readers.mixins
+    - intake.readers.namespaces
+    - intake.readers.output
+    - intake.readers.readers
+    - intake.readers.search
+    - intake.readers.transform
+    - intake.readers.user_parameters
     - intake.source
+    - intake.source.derived
   requires:
     - pip
   commands:
     - pip check
-    - intake list --help
-    - intake-server --help
 
 about:
   home: https://github.com/intake/intake
