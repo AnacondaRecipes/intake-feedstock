@@ -27,6 +27,7 @@ requirements:
     - fsspec >=2023.0.0
     - platformdirs
     - networkx
+  # Used here(https://github.com/intake/intake/blob/2.0.7/intake/interface/__init__.py#L7)
     - packaging
 
 test:
