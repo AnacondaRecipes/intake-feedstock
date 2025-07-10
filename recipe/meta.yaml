@@ -1,13 +1,13 @@
 {% set name = "intake" %}
-{% set version = "2.0.7" %}
+{% set version = "2.0.8" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/i/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9d3e82cba03e1659b094e3954143f453d54fd64328de322b2e4f11db5f9b1380
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/intake-{{ version }}.tar.gz
+  sha256: 731d484a002de2f659bb988f406b35037234a35c17b08776d9a5e4838ecf2769
 
 build:
   number: 0
@@ -18,48 +18,62 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
     - wheel
-    - setuptools_scm
+    - setuptools >=64
+    - setuptools_scm >=8
   run:
     - python
     - pyyaml
     - fsspec >=2023.0.0
     - platformdirs
     - networkx
-  # Used here(https://github.com/intake/intake/blob/2.0.7/intake/interface/__init__.py#L7)
+    # Used here(https://github.com/intake/intake/blob/2.0.8/intake/interface/__init__.py#L7)
     - packaging
 
 test:
   imports:
     - intake
     - intake.catalog
-    - intake.catalog.entry
+    - intake.catalog.base
     - intake.catalog.local
-    - intake.container
-    - intake.interface
-    - intake.interface.catalog
+    - intake.catalog.utils
+    - intake.catalog.zarr
+    - intake.config
+    - intake.interface.base
+    - intake.interface.catalog.add
+    - intake.interface.catalog.search
     - intake.interface.source
     - intake.readers
     - intake.readers.catalogs
     - intake.readers.convert
     - intake.readers.datatypes
     - intake.readers.entry
+    - intake.readers.examples
     - intake.readers.importlist
     - intake.readers.metadata
     - intake.readers.mixins
-    - intake.readers.namespaces
     - intake.readers.output
     - intake.readers.readers
     - intake.readers.search
     - intake.readers.transform
     - intake.readers.user_parameters
+    - intake.readers.utils
     - intake.source
+    - intake.source.base
+    - intake.source.csv
     - intake.source.derived
-  requires:
-    - pip
+    - intake.source.discovery
+    - intake.source.jsonfiles
+    - intake.source.textfiles
+    - intake.source.zarr
+    - intake.util_tests
+    - intake.utils
   commands:
     - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+  requires:
+    - pip
+    - panel
 
 about:
   home: https://github.com/intake/intake
@@ -74,7 +88,7 @@ about:
     * Describe data sets in catalog files for easy reuse and sharing between projects and with others.
     * Share catalog information (and data sets) over the network with the Intake server.
   dev_url: https://github.com/intake/intake
-  doc_url: https://intake.readthedocs.io/
+  doc_url: https://intake.readthedocs.io
 
 extra:
   recipe-maintainers:
