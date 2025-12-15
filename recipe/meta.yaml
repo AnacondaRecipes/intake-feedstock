@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/intake-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/intake-{{ version }}.tar.gz
   sha256: 731d484a002de2f659bb988f406b35037234a35c17b08776d9a5e4838ecf2769
 
 build:
-  number: 0
-  skip: True  # [py<38]
+  number: 1
+  skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
 
 requirements:
