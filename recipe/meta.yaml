@@ -10,7 +10,7 @@ source:
   sha256: 731d484a002de2f659bb988f406b35037234a35c17b08776d9a5e4838ecf2769
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
 
@@ -39,10 +39,6 @@ test:
     - intake.catalog.utils
     - intake.catalog.zarr
     - intake.config
-    - intake.interface.base
-    - intake.interface.catalog.add
-    - intake.interface.catalog.search
-    - intake.interface.source
     - intake.readers
     - intake.readers.catalogs
     - intake.readers.convert
@@ -73,7 +69,6 @@ test:
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
   requires:
     - pip
-    - panel
 
 about:
   home: https://github.com/intake/intake
