@@ -1,17 +1,17 @@
 {% set name = "intake" %}
-{% set version = "2.0.8" %}
+{% set version = "2.0.9" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/intake-{{ version }}.tar.gz
-  sha256: 731d484a002de2f659bb988f406b35037234a35c17b08776d9a5e4838ecf2769
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/intake-{{ version }}.tar.gz
+  sha256: 39b4b20abd3ccb7ddc735412b28e411db8bf6b27ff16e705cf77e4dc96137165
 
 build:
-  number: 1
-  skip: True  # [py<38]
+  number: 0
+  skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
 
 requirements:
